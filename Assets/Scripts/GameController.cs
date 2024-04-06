@@ -42,11 +42,6 @@ public class GameController : MonoBehaviour
         // ...
     }
 
-    public void SellStock()
-    {
-        // ...
-    }
-
     public void FinishTurn()
     {
         turno++;

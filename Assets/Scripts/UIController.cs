@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] Text playerContext;
+    
     public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
     {
         playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();

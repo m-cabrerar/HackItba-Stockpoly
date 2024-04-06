@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 2f;
     [SerializeField] float wait = 0.2f;
     [SerializeField] DiceController dice;
+    [SerializeField] UIController ui;
     public HashSet<int> properties = new HashSet<int>();
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
         isMoving = false;
         dice.DisableDice();
-        UIController.RenderPlayerContext(this);
+        ui.RenderPlayerContext(this);
     }
 
     bool MoveToNode(Vector3 node)
