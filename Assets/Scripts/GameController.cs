@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject[] Casillas;
-    [SerializeField] GameObject[] Jugadores;
-
-    public static int diceSideThrown = 0;
-
-    public static bool gameOver = false;
-    void Start()
+    [SerializeField] PlayerController[] jugadores;
+    [HideInInspector] public int diceSideThrown;
+    [HideInInspector] public bool gameOver = false;
+    private int turno = 0;
+    public void Play(int steps)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        jugadores[turno].steps = steps;
+        StartCoroutine(jugadores[turno].Move());
     }
 }

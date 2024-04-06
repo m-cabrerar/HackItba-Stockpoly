@@ -6,8 +6,9 @@ public class DiceController : MonoBehaviour
 {
     [SerializeField] Sprite[] diceSides;
     private SpriteRenderer rend;
-    private int whosTurn = 1;
+    private int whosTurn = 0;
     private bool coroutineAllowed = true;
+    [SerializeField] GameController game;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class DiceController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!GameController.gameOver && coroutineAllowed)
+        if(!game.gameOver && coroutineAllowed)
             StartCoroutine("RollTheDice");
     }
 
@@ -33,7 +34,7 @@ public class DiceController : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        GameController.diceSideThrown = randomDiceSide + 1;
+        game.Play(randomDiceSide + 1);
         
         /*
         Logic about the players moving should be programmed here

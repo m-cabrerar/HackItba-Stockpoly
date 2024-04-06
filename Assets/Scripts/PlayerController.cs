@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Path path;
+    [SerializeField] float speed = 2f;
+    [SerializeField] float wait = 0.2f;
     [HideInInspector] public int posicionTablero = 0;
-    void Start()
+    [HideInInspector] public int steps;
+    bool isMoving;
+    
+    public IEnumerator Move()
     {
-        
+        if (isMoving)
+        {
+            yield break;
+        }
+        isMoving = true;
+
+        for (;steps > 0; steps--)
+        {
+            Vector3 nextPos = path.nodeList[(posicionTablero + 1) % path.nodeList.Count].position;
+            while (MoveToNode(nextPos)) {yield return null;}
+            yield return new WaitForSeconds(wait);
+            posicionTablero++;
+        }
+
+        isMoving = false;
     }
-    void Update()
+
+    bool MoveToNode(Vector3 node)
     {
-        
+        return node != (transform.position = Vector3.MoveTowards(transform.position, node, speed * Time.deltaTime));
     }
+
 }
