@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b738cbe67e017438f0e91434189658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice: {fileID: 0}
   playerContext: {fileID: 0}
 --- !u!1 &190188930
 GameObject:
@@ -1521,6 +1520,8 @@ MonoBehaviour:
   path: {fileID: 409632196}
   speed: 2
   wait: 0.2
+  dice: {fileID: 1891658196}
+  ui: {fileID: 42631463}
   posicionTablero: 0
   steps: 0
 --- !u!212 &1050523593
