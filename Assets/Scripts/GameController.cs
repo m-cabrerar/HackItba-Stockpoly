@@ -45,4 +45,11 @@ public class GameController : MonoBehaviour
     {
         // ...
     }
+
+    public void FinishTurn()
+    {
+        turno++;
+        UIController.RenderNewTurnContext();
+        dice.EnableDice();
+    }
 }
