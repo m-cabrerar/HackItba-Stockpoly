@@ -1817,12 +1817,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1569278650}
     m_Modifications:
     - target: {fileID: 1540596405896666611, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_text
+      value: 'No, gracias
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540596405896666611, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1540596405896666611, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1693025283340789697, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_Name
@@ -1839,6 +1845,10 @@ PrefabInstance:
     - target: {fileID: 3013751895708469243, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_Name
       value: "TDescripci\xF3n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612005193100280543, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_Name
+      value: NoButton
       objectReference: {fileID: 0}
     - target: {fileID: 4005600368355290584, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_AnchoredPosition.y

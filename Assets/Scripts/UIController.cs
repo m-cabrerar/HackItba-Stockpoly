@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
     public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
     {
         TriggerButton(true);
-        playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
+        playerContext.text = "Disponible: " + player.getDisponible() + "\nInvertido = " + player.getInvertido();
         if (casillas[player.posicionTablero].getData() != null)
         {
             RenderTarjeta(casillas[player.posicionTablero].getData());

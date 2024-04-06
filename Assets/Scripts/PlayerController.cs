@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public HashSet<int> properties = new HashSet<int>();
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
-    private long ahorros;
+    private long disponible;
+    private Dictionary<ItemData, int> cartera = new Dictionary<ItemData, int>();
     bool isMoving;
     
     public IEnumerator Move(DiceController dice)
@@ -41,15 +43,18 @@ public class PlayerController : MonoBehaviour
         return node != (transform.position = Vector3.MoveTowards(transform.position, node, speed * Time.deltaTime));
     }
 
-    public long getAhorros()
+    public long getDisponible()
     {
-        return ahorros;
+        return disponible;
     }
 
     public long getInvertido()
     {
         long invertido = 0;
-        //for
+        foreach (ItemData data in cartera.Keys)
+        {
+            invertido = (long)Math.Floor(data.precio.precioBase * (1 + data.precio.variacion) * cartera[data]);
+        }
         return invertido; 
     }
 
