@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public HashSet<int> properties = new HashSet<int>();
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
+    private long ahorros;
     bool isMoving;
     
     public IEnumerator Move(DiceController dice)
@@ -37,6 +38,18 @@ public class PlayerController : MonoBehaviour
     bool MoveToNode(Vector3 node)
     {
         return node != (transform.position = Vector3.MoveTowards(transform.position, node, speed * Time.deltaTime));
+    }
+
+    public long getAhorros()
+    {
+        return ahorros;
+    }
+
+    public long getInvertido()
+    {
+        long invertido = 0;
+        //for
+        return invertido; 
     }
 
 }

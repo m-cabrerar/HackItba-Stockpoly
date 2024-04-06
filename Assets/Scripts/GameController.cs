@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] PlayerController[] jugadores;
     [SerializeField] DiceController dice;
+    [SerializeField] UIController ui;
     [HideInInspector] public int diceSideThrown;
     [HideInInspector] public bool gameOver = false;
     private int turno = 0;
@@ -49,7 +50,7 @@ public class GameController : MonoBehaviour
     public void FinishTurn()
     {
         turno++;
-        UIController.RenderNewTurnContext();
+        ui.RenderNewTurnContext();
         dice.EnableDice();
     }
 }
