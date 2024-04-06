@@ -7,7 +7,7 @@ public class DiceController : MonoBehaviour
     [SerializeField] Sprite[] diceSides;
     private SpriteRenderer rend;
     private int whosTurn = 0;
-    private bool coroutineAllowed = true;
+    private static bool coroutineAllowed = true;
     [SerializeField] GameController game;
 
     // Start is called before the first frame update
@@ -35,11 +35,10 @@ public class DiceController : MonoBehaviour
         }
 
         game.Play(randomDiceSide + 1);
-        
-        /*
-        Logic about the players moving should be programmed here
-        */
+    }
 
+    public static void EnableDice()
+    {
         coroutineAllowed = true;
     }
 }

@@ -11,6 +11,6 @@ public class GameController : MonoBehaviour
     public void Play(int steps)
     {
         jugadores[turno].steps = steps;
-        StartCoroutine(jugadores[turno].Move());
+        StartCoroutine(jugadores[turno % jugadores.Length].Move());
     }
 }
