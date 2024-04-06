@@ -9,10 +9,40 @@ public class GameController : MonoBehaviour
     [HideInInspector] public int diceSideThrown;
     [HideInInspector] public bool gameOver = false;
     private int turno = 0;
+
     public void Play(int steps)
     {
         jugadores[turno % jugadores.Length].steps = steps;
-        StartCoroutine(jugadores[turno % jugadores.Length].Move());
-        UIController.RenderPlayerContext(jugadores[turno % jugadores.Length]);
+        StartCoroutine(jugadores[turno % jugadores.Length].Move(dice));
+    }
+
+    public void BuyProperty()
+    {
+        // ...
+    }
+
+    public void BuyHouse()
+    {
+        // ...
+    }
+
+    public void SellHouse()
+    {
+        // ...
+    }
+
+    public void BuyStock()
+    {
+        // ...
+    }
+
+    public void SellStock()
+    {
+        // ...
+    }
+
+    public void SellStock()
+    {
+        // ...
     }
 }

@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Path path;
     [SerializeField] float speed = 2f;
     [SerializeField] float wait = 0.2f;
+    [SerializeField] DiceController dice;
     public HashSet<int> properties = new HashSet<int>();
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
     bool isMoving;
     
-    public IEnumerator Move()
+    public IEnumerator Move(DiceController dice)
     {
         if (isMoving)
         {
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
         }
 
         isMoving = false;
+        dice.DisableDice();
+        UIController.RenderPlayerContext(this);
     }
 
     bool MoveToNode(Vector3 node)
