@@ -6,6 +6,10 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject[] Casillas;
     [SerializeField] GameObject[] Jugadores;
+
+    public static int diceSideThrown = 0;
+
+    public static bool gameOver = false;
     void Start()
     {
         
