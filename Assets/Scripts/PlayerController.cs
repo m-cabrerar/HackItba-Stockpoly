@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Path path;
     [SerializeField] float speed = 2f;
     [SerializeField] float wait = 0.2f;
-    public HashSet<Integer> properties = new HashSet<Integer>();
+    public HashSet<int> properties = new HashSet<int>();
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
     bool isMoving;
