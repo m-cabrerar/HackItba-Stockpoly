@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] Text playerContext;
+    [SerializeField] TextMeshProUGUI playerContext;
     [SerializeField] public Button TerminarTurnoButton;
 
     
@@ -17,7 +18,7 @@ public class UIController : MonoBehaviour
     public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
     {
         TriggerButton(true);
-        //playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
+        playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
     }
 
     public void LoadProperty()
