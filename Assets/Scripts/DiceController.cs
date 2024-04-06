@@ -6,7 +6,6 @@ public class DiceController : MonoBehaviour
 {
     [SerializeField] Sprite[] diceSides;
     private SpriteRenderer rend;
-    private int whosTurn = 0;
     private bool coroutineAllowed = true;
     [SerializeField] GameController game;
 

@@ -11,6 +11,11 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool gameOver = false;
     private int turno = 0;
 
+    void Start()
+    {
+        ui.TerminarTurnoButton.onClick.AddListener(FinishTurn);
+    }
+
     public void Play(int steps)
     {
         jugadores[turno % jugadores.Length].steps = steps;

@@ -6,10 +6,18 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] Text playerContext;
+    [SerializeField] public Button TerminarTurnoButton;
+
     
+    void Start()
+    {
+        TriggerButton(false);
+    }
+
     public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
     {
-        playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
+        TriggerButton(true);
+        //playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
     }
 
     public void LoadProperty()
@@ -19,6 +27,12 @@ public class UIController : MonoBehaviour
 
     public void RenderNewTurnContext()
     {
-        // TODO
+        TriggerButton(false);
+    }
+
+    private void TriggerButton(bool state)
+    {
+        TerminarTurnoButton.gameObject.SetActive(state);
+        TerminarTurnoButton.enabled = state;    
     }
 }
