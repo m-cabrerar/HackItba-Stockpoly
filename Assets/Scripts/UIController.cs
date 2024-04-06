@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI playerContext;
     [SerializeField] public Button TerminarTurnoButton;
-    [SerializeField] CasillaContrller[] casillas;
+    [SerializeField] CasillaController[] casillas;
 
     
     void Start()
@@ -20,9 +20,9 @@ public class UIController : MonoBehaviour
     {
         TriggerButton(true);
         playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
-        if (casillas[jugador.posicionTablero].getData() != null)
+        if (casillas[player.posicionTablero].getData() != null)
         {
-            renderTarjeta(casillas[jugador.posicionTablero].getData());
+            RenderTarjeta(casillas[player.posicionTablero].getData());
         }
     }
 
@@ -34,6 +34,11 @@ public class UIController : MonoBehaviour
     public void RenderNewTurnContext()
     {
         TriggerButton(false);
+    }
+
+    public void RenderTarjeta(ItemData data)
+    {
+        
     }
 
     private void TriggerButton(bool state)
