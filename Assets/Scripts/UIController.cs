@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    private void FinishTurn() {
+    [SerializeField] DiceController dice;
+    
+    public void FinishTurn() {
         turno++;
-        DiceController.EnableDice();
+        dice.EnableDice();
+    }
+
+    public static void RenderPlayerContext(PlayerController player)
+    {
+        // TODO
+    }
+
+    public void LoadProperty()
+    {
+        // Implement
     }
 }
