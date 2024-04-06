@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CasillaController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] ItemData data;
 
-    // Update is called once per frame
-    void Update()
+    public ItemData getData()
     {
-        
+        return data;
     }
 }
