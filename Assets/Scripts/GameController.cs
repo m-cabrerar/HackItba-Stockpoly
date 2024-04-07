@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
         ui.tarjetaEnable(false);
         while (ui.carteraContent.transform.childCount != 0)
         {
-            Destroy(ui.transform.GetChild(0));
+            Destroy(ui.carteraContent.transform.GetChild(0));
         }
         foreach (ItemData data in jugadores[turno % jugadores.Length].cartera.Keys)
         {
