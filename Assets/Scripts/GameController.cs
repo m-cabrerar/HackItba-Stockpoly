@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +16,18 @@ public class GameController : MonoBehaviour
     void Start()
     {
         ui.TerminarTurnoButton.onClick.AddListener(FinishTurn);
+        ui.tarjeta.comprarButton.onClick.AddListener(Comprar);
+        //ui.tarjeta.noButton
+        foreach (PlayerController jugador in jugadores)
+        {
+            jugador.cobrar(1000);
+        }
     }
 
     public void Play(int steps)
     {
         jugadores[turno % jugadores.Length].steps = steps;
-        StartCoroutine(jugadores[turno % jugadores.Length].Move(dice));
+        StartCoroutine(jugadores[turno % jugadores.Length].Move(dice, turno));
     }
 
     public void BuyProperty()
@@ -38,14 +45,13 @@ public class GameController : MonoBehaviour
         // ...
     }
 
-    public void BuyStock()
+    public void Comprar()
     {
-        // ...
-    }
-
-    public void SellStock()
-    {
-        // ...
+        ItemData data = ui.casillas[jugadores[turno].posicionTablero].getData();
+        jugadores[turno].cobrar(-1 * (long)Math.Floor((data.precio.precioBase * (1 + data.precio.variacion))));
+        if (!jugadores[turno].cartera.ContainsKey(data)) { jugadores[turno].cartera[data] = 0; }
+        jugadores[turno].cartera[data]++;
+        ui.refreshSaldo(jugadores[turno]);
     }
 
     public void FinishTurn()

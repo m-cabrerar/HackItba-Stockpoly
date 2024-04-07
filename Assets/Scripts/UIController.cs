@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI playerContext;
     [SerializeField] public Button TerminarTurnoButton;
-    [SerializeField] CasillaController[] casillas;
+    [SerializeField] public CasillaController[] casillas;
     [SerializeField] AlphaVantageAPI apiStocks;
 
     [System.Serializable] public struct TarjetaUI 
@@ -17,9 +17,11 @@ public class UIController : MonoBehaviour
         public Image image;
         public TextMeshProUGUI detalle;
         public TextMeshProUGUI precio;
+        public Button comprarButton;
+        public Button noButton;
     }
     
-    [SerializeField] TarjetaUI tarjeta;
+    [SerializeField] public TarjetaUI tarjeta;
 
     void Start()
     {
@@ -30,7 +32,7 @@ public class UIController : MonoBehaviour
     public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
     {
         TriggerButton(true);
-        playerContext.text = "Disponible: " + player.getDisponible() + "\nInvertido = " + player.getInvertido();
+        refreshSaldo(player);
         if (casillas[player.posicionTablero].getData() != null)
         {
             RenderTarjeta(casillas[player.posicionTablero].getData());
@@ -38,7 +40,12 @@ public class UIController : MonoBehaviour
         }
         
         Dictionary<string, Stack<Stock>> data = apiStocks.stocksData;
-        Debug.Log(data);
+        //Debug.Log(data);
+    }
+
+    public void refreshSaldo(PlayerController player)
+    {
+        playerContext.text = "Disponible: " + player.getDisponible() + "\nInvertido = " + player.getInvertido();
     }
 
     public void LoadProperty()
@@ -73,5 +80,7 @@ public class UIController : MonoBehaviour
         tarjeta.detalle.enabled = state;
         tarjeta.image.enabled = state;
         tarjeta.precio.enabled = state;
+        tarjeta.comprarButton.enabled = state;
+        tarjeta.noButton.enabled = state;
     }
 }

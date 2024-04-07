@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
     private long disponible;
-    private Dictionary<ItemData, int> cartera = new Dictionary<ItemData, int>();
+    [HideInInspector] public Dictionary<ItemData, int> cartera = new Dictionary<ItemData, int>();
     bool isMoving;
     
-    public IEnumerator Move(DiceController dice)
+    public IEnumerator Move(DiceController dice, int turno)
     {
         if (isMoving)
         {
@@ -27,12 +27,11 @@ public class PlayerController : MonoBehaviour
 
         for (;steps > 0; steps--)
         {
-            Vector3 nextPos = path.nodeList[(posicionTablero + 1) % path.nodeList.Count].position;
+            Vector3 nextPos = path.nodeList[(++posicionTablero) % path.nodeList.Count].position + new Vector3(turno==1?0.2f:turno==2?-0.2f:0,turno==0?0.2f:-0.2f,0);
             while (MoveToNode(nextPos)) {yield return null;}
             yield return new WaitForSeconds(wait);
-            posicionTablero++;
         }
-        posicionTablero = (posicionTablero + 1) % path.nodeList.Count;
+        posicionTablero = (posicionTablero) % path.nodeList.Count;
         isMoving = false;
         dice.DisableDice();
         ui.RenderPlayerContext(this);
@@ -46,6 +45,11 @@ public class PlayerController : MonoBehaviour
     public long getDisponible()
     {
         return disponible;
+    }
+
+    public void cobrar(long cantidad)
+    {
+        disponible += cantidad;
     }
 
     public long getInvertido()
