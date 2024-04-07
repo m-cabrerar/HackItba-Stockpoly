@@ -36,7 +36,7 @@ public class UIController : MonoBehaviour
             RenderTarjeta(casillas[player.posicionTablero].getData());
         
         }
-        */
+        
         Dictionary<string, Stack<Stock>> data = apiStocks.stocksData;
         Debug.Log(data);
     }
