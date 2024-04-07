@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     {
         ui.TerminarTurnoButton.onClick.AddListener(FinishTurn);
         ui.tarjeta.comprarButton.onClick.AddListener(Comprar);
-        //ui.tarjeta.noButton
+        ui.tarjeta.noButton.onClick.AddListener(SaltoACartera);
         foreach (PlayerController jugador in jugadores)
         {
             jugador.cobrar(1000);
@@ -49,16 +49,25 @@ public class GameController : MonoBehaviour
 
     public void Comprar()
     {
-        ItemData data = ui.casillas[jugadores[turno].posicionTablero].getData();
-        jugadores[turno].cobrar(-1 * (long)Math.Floor((data.precio.precioBase * (1 + data.precio.variacion))));
-        if (!jugadores[turno].cartera.ContainsKey(data)) { jugadores[turno].cartera[data] = 0; }
-        jugadores[turno].cartera[data]++;
-        ui.refreshSaldo(jugadores[turno]);
+        ItemData data = ui.casillas[jugadores[turno % jugadores.Length].posicionTablero].getData();
+        jugadores[turno % jugadores.Length].cobrar(-1 * (long)Math.Floor((data.precio.precioBase * (1 + data.precio.variacion))));
+        if (!jugadores[turno % jugadores.Length].cartera.ContainsKey(data)) { jugadores[turno % jugadores.Length].cartera[data] = 0; }
+        jugadores[turno % jugadores.Length].cartera[data]++;
+        ui.refreshSaldo(jugadores[turno % jugadores.Length]);
     }
 
-    public void saltoACartera()
+    public void SaltoACartera()
     {
         ui.tarjetaEnable(false);
+        while (ui.carteraContent.transform.childCount != 0)
+        {
+            Destroy(ui.transform.GetChild(0));
+        }
+        foreach (ItemData data in jugadores[turno % jugadores.Length].cartera.Keys)
+        {
+            GameObject obj = Instantiate(ui.carteraItemPref, ui.carteraContent.transform);
+        }
+        ui.carteraContent.SetActive(true);
     }
 
     public void FinishTurn()
@@ -66,5 +75,6 @@ public class GameController : MonoBehaviour
         turno++;
         ui.RenderNewTurnContext();
         dice.EnableDice();
+        ui.carteraContent.SetActive(false);
     }
 }
