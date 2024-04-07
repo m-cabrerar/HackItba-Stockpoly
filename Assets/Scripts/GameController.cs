@@ -53,6 +53,10 @@ public class GameController : MonoBehaviour
     public void Comprar()
     {
         ItemData data = ui.casillas[jugadores[turno % jugadores.Length].posicionTablero].getData();
+        if(jugadores[turno % jugadores.Length].disponible < (long)Math.Floor((data.precio.precioBase * (1 + data.precio.variacion))))
+        {
+            return;
+        }
         jugadores[turno % jugadores.Length].cobrar(-1 * (long)Math.Floor((data.precio.precioBase * (1 + data.precio.variacion))));
         if (!jugadores[turno % jugadores.Length].cartera.ContainsKey(data)) { jugadores[turno % jugadores.Length].cartera[data] = 0; }
         jugadores[turno % jugadores.Length].cartera[data]++;

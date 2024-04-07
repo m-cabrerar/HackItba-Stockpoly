@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BitCoin
   m_EditorClassIdentifier: 
   nombre: BTC
-  sprite: {fileID: 0}
-  detalle: 
+  sprite: {fileID: 21300000, guid: 7fd72e03d49594841bcbc83bea223669, type: 3}
+  detalle: "La empresa Bitcoin (BTC) del rubro de criptomonedas ha experimentado
+    fluctuaciones en su valor en la bolsa a lo largo de los \xFAltimos meses."
   precio:
     precioBase: 800
-    variacion: 0
+    variacion: 0.0024082270894955583
+  precioAnterior: 99.94

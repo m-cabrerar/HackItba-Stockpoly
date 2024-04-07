@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public HashSet<int> properties = new HashSet<int>();
     [HideInInspector] public int posicionTablero = 0;
     [HideInInspector] public int steps;
-    private long disponible;
+    public long disponible;
     [HideInInspector] public Dictionary<ItemData, int> cartera = new Dictionary<ItemData, int>();
     bool isMoving;
     

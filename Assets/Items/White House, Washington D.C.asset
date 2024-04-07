@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: White House, Washington D.C
   m_EditorClassIdentifier: 
   nombre: White House, Washington D.C
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c77de39a171d9c3448dee5ee3e2f7357, type: 3}
   detalle: 
   precio:
     precioBase: 800

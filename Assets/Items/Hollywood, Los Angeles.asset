@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hollywood, Los Angeles
   m_EditorClassIdentifier: 
   nombre: Hollywood, Los Angeles
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0561c841a8e618e4c95bef5d1e13bb75, type: 3}
   detalle: 
   precio:
     precioBase: 600

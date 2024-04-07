@@ -262,6 +262,7 @@ MonoBehaviour:
   - {fileID: 304981980}
   apiStocks: {fileID: 444481310}
   carteraContent: {fileID: 1478775269}
+  jugadorActualDisplay: {fileID: 505754064}
   tarjeta:
     nombre: {fileID: 1018591401}
     image: {fileID: 1018591400}
@@ -2321,8 +2322,16 @@ PrefabInstance:
       value: TNoButton
       objectReference: {fileID: 0}
     - target: {fileID: 4005600368355290584, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005600368355290584, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005600368355290584, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -282.4
+      value: -462
       objectReference: {fileID: 0}
     - target: {fileID: 4094066839321235909, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_Enabled
@@ -2410,15 +2419,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704322299916910880, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34.9
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 4791484492008862520, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSize
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4791484492008862520, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_margin.y
+      value: 132.78517
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791484492008862520, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_margin.z
+      value: -2.748108
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791484492008862520, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791484492008862520, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSizeBase
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791484492008862520, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5386822770037245147, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2450,19 +2475,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5848263090573691215, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSize
-      value: 60
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848263090573691215, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_margin.w
+      value: 256.12238
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848263090573691215, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_margin.y
+      value: 145.96216
       objectReference: {fileID: 0}
     - target: {fileID: 5848263090573691215, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSizeBase
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5848263090573691215, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5864503727012353081, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 43.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864503727012353081, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_margin.w
+      value: 118.42212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864503727012353081, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_margin.y
+      value: 82.62012
       objectReference: {fileID: 0}
     - target: {fileID: 5864503727012353081, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_fontSizeBase
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864503727012353081, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866469295055891200, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_Name
@@ -2510,7 +2559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441640461177555377, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 263.2
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 7844246550432191328, guid: 4c2f93831a1e2d945b15398585204c9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

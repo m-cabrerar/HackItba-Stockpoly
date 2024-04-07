@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Times Square, New York
   m_EditorClassIdentifier: 
   nombre: Times Square, New York
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ec7d09e996f54c64f9edc1358bcb21e8, type: 3}
   detalle: 
   precio:
     precioBase: 1000

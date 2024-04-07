@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: aapl
   m_EditorClassIdentifier: 
   nombre: AAPL
-  sprite: {fileID: 21300000, guid: f5ef16a336b0a4c489af4e2abe293035, type: 3}
-  detalle: 
+  sprite: {fileID: 21300000, guid: 221ca86017621ec47984946ccc46a231, type: 3}
+  detalle: "Apple Inc., empresa l\xEDder en tecnolog\xEDa, experiment\xF3 un per\xEDodo
+    de volatilidad en la bolsa a finales de 1999 y principios de 2000, con aumentos
+    y ca\xEDdas en el valor de sus acciones"
   precio:
     precioBase: 150
-    variacion: -0.10434782608695652
-  precioAnterior: 103
+    variacion: -0.21199999999999997
+  precioAnterior: 90.62

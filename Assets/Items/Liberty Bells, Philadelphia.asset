@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Liberty Bells, Philadelphia
   m_EditorClassIdentifier: 
   nombre: Liberty Bells, Philadelphia
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d26b6189bb45cc84b94cb454d33f65ba, type: 3}
   detalle: 
   precio:
     precioBase: 250
