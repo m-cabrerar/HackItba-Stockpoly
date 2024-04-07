@@ -10,18 +10,22 @@ using UnityEngine;
 public class AlphaVantageAPI : MonoBehaviour
 {
     public Dictionary<string, Stack<Stock>> stocksData;
-    public string[] symbols = { "IBM", "KO", "GOOGL", "MCD" };
     
     void Start()
     {
-        StartCoroutine(GetRequest(symbols));
+        string[] symbols = { "AAPL", "SPY", "MELI", "COKE", "NVDA", "BTC" };
+        GetRequest(symbols);
     }
 
-    IEnumerator<object> GetRequest(string[] symbols)
+    void GetRequest(string[] symbols)
     {
         stocksData = new Dictionary<string, Stack<Stock>>();
         foreach(var symbol in symbols){
-            using(UnityWebRequest webRequest = UnityWebRequest.Get($"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={symbol}&apikey=YVFHTBXFDSO30PAX&datatype=csv"))
+    
+            /*
+            **API Deprecated because it was a free trial, hardcoding the CSVs for the MVP
+
+            using(UnityWebRequest webRequest = UnityWebRequest.Get($"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={symbol}&apikey=HMI2Y6EU1EEPAIYP&datatype=csv"))
             {
                 yield return webRequest.SendWebRequest();
                 switch(webRequest.result)
@@ -53,7 +57,24 @@ public class AlphaVantageAPI : MonoBehaviour
                         Debug.Log(stack.Count);
                         break;
                 }
-            }   
+            }
+            */   
+            Stack<Stock> stack = new Stack<Stock>();
+            stocksData[symbol] = stack;
+            StreamReader stream = new StreamReader(String.Format("./Assets/Items/{0}.csv", symbol));
+            bool EOF = false;
+            stream.ReadLine();
+            while(!EOF)
+            {
+                string dataString = stream.ReadLine();
+                if(dataString == null)
+                {
+                    EOF = true;
+                    break;
+                }
+                var dataValues = dataString.Split(',');
+                stack.Push(new Stock(DateTime.Parse(dataValues[0]), Convert.ToDouble(dataValues[1]), Convert.ToDouble(dataValues[2]), Convert.ToDouble(dataValues[3]), Convert.ToDouble(dataValues[4]), Convert.ToInt64(dataValues[5])));
+            }
         }
     }
 }

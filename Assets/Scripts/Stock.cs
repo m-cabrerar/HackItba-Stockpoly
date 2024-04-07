@@ -10,9 +10,9 @@ public class Stock
     double high {get; set;}    
     double low {get; set;}
     double close {get; set;}
-    int volume {get; set;}
+    long volume {get; set;}
 
-    public Stock(DateTime timestamp, double open, double high, double low, double close, int volume)
+    public Stock(DateTime timestamp, double open, double high, double low, double close, long volume)
     {
         this.timestamp = timestamp;
         this.open = open;
