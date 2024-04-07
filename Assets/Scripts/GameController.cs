@@ -56,6 +56,11 @@ public class GameController : MonoBehaviour
         ui.refreshSaldo(jugadores[turno]);
     }
 
+    public void saltoACartera()
+    {
+        ui.tarjetaEnable(false);
+    }
+
     public void FinishTurn()
     {
         turno++;

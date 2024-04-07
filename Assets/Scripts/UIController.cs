@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] public Button TerminarTurnoButton;
     [SerializeField] public CasillaController[] casillas;
     [SerializeField] AlphaVantageAPI apiStocks;
+    public GameObject carteraContent;
 
     [System.Serializable] public struct TarjetaUI 
     { 
@@ -23,6 +24,7 @@ public class UIController : MonoBehaviour
     }
     
     [SerializeField] public TarjetaUI tarjeta;
+    [SerializeField] public GameObject carteraItemPref;
 
     void Start()
     {
@@ -75,7 +77,7 @@ public class UIController : MonoBehaviour
         TerminarTurnoButton.enabled = state;   
     }
 
-    private void tarjetaEnable(bool state)
+    public void tarjetaEnable(bool state)
     {
         tarjeta.nombre.enabled = state;
         tarjeta.detalle.enabled = state;
