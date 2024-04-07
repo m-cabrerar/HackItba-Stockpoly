@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerContext;
     [SerializeField] public Button TerminarTurnoButton;
     [SerializeField] CasillaController[] casillas;
+    [SerializeField] AlphaVantageAPI apiStocks;
 
     [System.Serializable] public struct TarjetaUI 
     { 
@@ -29,11 +30,21 @@ public class UIController : MonoBehaviour
     public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
     {
         TriggerButton(true);
+<<<<<<< Updated upstream
         playerContext.text = "Disponible: " + player.getDisponible() + "\nInvertido = " + player.getInvertido();
+=======
+        playerContext.text = "Ahorros: " + player.getAhorros() + "\nInvertido = " + player.getInvertido();
+        /*
+        
+>>>>>>> Stashed changes
         if (casillas[player.posicionTablero].getData() != null)
         {
             RenderTarjeta(casillas[player.posicionTablero].getData());
+        
         }
+        */
+        Dictionary<string, Stack<Stock>> data = apiStocks.stocksData;
+        Debug.Log(data);
     }
 
     public void LoadProperty()

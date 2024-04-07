@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] PlayerController[] jugadores;
     [SerializeField] DiceController dice;
     [SerializeField] UIController ui;
+    [SerializeField] AlphaVantageAPI apiStocks;
     [HideInInspector] public int diceSideThrown;
     [HideInInspector] public bool gameOver = false;
     private int turno = 0;

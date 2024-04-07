@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(wait);
             posicionTablero++;
         }
-
+        posicionTablero = (posicionTablero + 1) % path.nodeList.Count;
         isMoving = false;
         dice.DisableDice();
         ui.RenderPlayerContext(this);
