@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using TMPro;
 
 public class UIController : MonoBehaviour
@@ -13,6 +14,8 @@ public class UIController : MonoBehaviour
     [SerializeField] AlphaVantageAPI apiStocks;
     public GameObject carteraContent;
     public TextMeshProUGUI jugadorActualDisplay;
+
+    private static string gptURI = "https://stockpoly-api-production.up.railway.app/profile";
 
     [System.Serializable] public struct TarjetaUI 
     { 
@@ -44,7 +47,6 @@ public class UIController : MonoBehaviour
         }
         
         Dictionary<string, Stack<Stock>> data = apiStocks.stocksData;
-        //Debug.Log(data);
     }
 
     public void refreshSaldo(PlayerController player)
@@ -88,10 +90,11 @@ public class UIController : MonoBehaviour
         tarjeta.noButton.enabled = state;
     }
 
-    public void RefreshStocks(int turno)
-    {
+    public IEnumerator RefreshStocks(int turno)
+    {                
         foreach(var casilla in casillas)
         {
+
             ItemData data = casilla.getData();
             if(data is TituloData) 
             {   
@@ -107,7 +110,23 @@ public class UIController : MonoBehaviour
                 double aux = apiStocks.stocksData[auxData.nombre].Pop().close;
                 auxData.precio.variacion = (aux - auxData.precioAnterior)/auxData.precioAnterior;
                 auxData.precioAnterior = aux;
-
+                
+                int from = turno % apiStocks.stocksHistorical[data.nombre].Length;
+                string json = MarketDataToJson.Jsonify(data.nombre, apiStocks.stocksHistorical[data.nombre], from - 10 > 0 ? from - 10 : 0, from + 20);
+                using(UnityWebRequest webRequest = UnityWebRequest.Post(gptURI, json, null))
+                {
+                    yield return webRequest.SendWebRequest();
+                    switch(webRequest.result)
+                    {
+                        case UnityWebRequest.Result.ConnectionError:                
+                        case UnityWebRequest.Result.DataProcessingError:
+                            Debug.LogError(String.Format("Some processing went wrong : {0}", webRequest.error));
+                            break;
+                        case UnityWebRequest.Result.Success:
+                            data.detalle = webRequest.downloadHandler.text;
+                            break;
+                    }
+                }  
             }
         }
     }

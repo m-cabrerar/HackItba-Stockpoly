@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         ui.jugadorActualDisplay.text = "Jugador " + ((turno%jugadores.Length) + 1);
         jugadores[turno % jugadores.Length].steps = steps;
         StartCoroutine(jugadores[turno % jugadores.Length].Move(dice, turno));
-        ui.RefreshStocks(turno);
+        StartCoroutine(ui.RefreshStocks(turno));
     }
 
     public void BuyProperty()
