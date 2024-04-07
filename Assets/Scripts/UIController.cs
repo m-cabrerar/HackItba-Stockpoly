@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField] public CasillaController[] casillas;
     [SerializeField] AlphaVantageAPI apiStocks;
     public GameObject carteraContent;
+    public TextMeshProUGUI jugadorActualDisplay;
 
     [System.Serializable] public struct TarjetaUI 
     { 

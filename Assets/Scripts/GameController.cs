@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -27,6 +29,7 @@ public class GameController : MonoBehaviour
 
     public void Play(int steps)
     {
+        ui.jugadorActualDisplay.text = "Jugador " + ((turno%jugadores.Length) + 1);
         jugadores[turno % jugadores.Length].steps = steps;
         StartCoroutine(jugadores[turno % jugadores.Length].Move(dice, turno));
         ui.RefreshStocks(turno);
@@ -59,13 +62,17 @@ public class GameController : MonoBehaviour
     public void SaltoACartera()
     {
         ui.tarjetaEnable(false);
-        while (ui.carteraContent.transform.childCount != 0)
+        for (int i = ui.carteraContent.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(ui.carteraContent.transform.GetChild(0));
+            Destroy(ui.carteraContent.transform.GetChild(i).gameObject);
         }
         foreach (ItemData data in jugadores[turno % jugadores.Length].cartera.Keys)
         {
             GameObject obj = Instantiate(ui.carteraItemPref, ui.carteraContent.transform);
+            obj.transform.Find("Nombre").GetComponent<TextMeshProUGUI>().text = data.nombre;
+            obj.transform.Find("Descripción").GetComponent<TextMeshProUGUI>().text = data.detalle;
+            obj.transform.Find("Precio").GetComponent<TextMeshProUGUI>().text = "$" + data.precio.precioBase * (1+data.precio.variacion);
+            obj.transform.Find("Image").GetComponent<Image>().sprite = data.sprite;
         }
         ui.carteraContent.SetActive(true);
     }
