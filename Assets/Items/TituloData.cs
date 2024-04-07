@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Titulo", menuName = "Item/Titulo")]
 public class TituloData : ItemData
 {
-    public Stack<Double> datosMercado;
+    public double precioAnterior;
 }

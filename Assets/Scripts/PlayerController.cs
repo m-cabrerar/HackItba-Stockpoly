@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         posicionTablero = (posicionTablero) % path.nodeList.Count;
         isMoving = false;
         dice.DisableDice();
-        ui.RenderPlayerContext(this);
+        ui.RenderPlayerContext(this, turno);
     }
 
     bool MoveToNode(Vector3 node)

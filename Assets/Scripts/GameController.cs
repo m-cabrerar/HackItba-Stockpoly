@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] DiceController dice;
     [SerializeField] UIController ui;
     [SerializeField] AlphaVantageAPI apiStocks;
+    [SerializeField] ItemData[] items;
     [HideInInspector] public int diceSideThrown;
     [HideInInspector] public bool gameOver = false;
     private int turno = 0;
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour
     {
         jugadores[turno % jugadores.Length].steps = steps;
         StartCoroutine(jugadores[turno % jugadores.Length].Move(dice, turno));
+        ui.RefreshStocks(turno);
     }
 
     public void BuyProperty()
@@ -56,7 +58,7 @@ public class GameController : MonoBehaviour
 
     public void FinishTurn()
     {
-        turno = (turno+1) % jugadores.Length;
+        turno++;
         ui.RenderNewTurnContext();
         dice.EnableDice();
     }

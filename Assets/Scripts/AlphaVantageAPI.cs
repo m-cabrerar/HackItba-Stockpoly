@@ -10,6 +10,7 @@ using UnityEngine;
 public class AlphaVantageAPI : MonoBehaviour
 {
     public Dictionary<string, Stack<Stock>> stocksData;
+    public Dictionary<string, Stock[]> stocksHistorical;
     
     void Start()
     {
@@ -20,6 +21,8 @@ public class AlphaVantageAPI : MonoBehaviour
     void GetRequest(string[] symbols)
     {
         stocksData = new Dictionary<string, Stack<Stock>>();
+        stocksHistorical = new Dictionary<string, Stock[]>();
+
         foreach(var symbol in symbols){
     
             /*
@@ -75,6 +78,13 @@ public class AlphaVantageAPI : MonoBehaviour
                 var dataValues = dataString.Split(',');
                 stack.Push(new Stock(DateTime.Parse(dataValues[0]), Convert.ToDouble(dataValues[1]), Convert.ToDouble(dataValues[2]), Convert.ToDouble(dataValues[3]), Convert.ToDouble(dataValues[4]), Convert.ToInt64(dataValues[5])));
             }
+            stocksHistorical[symbol] = stack.ToArray();
+        }
+    }
+
+    public void resetStack(string symbol){
+        for(int i = stocksHistorical[symbol].Length ; i >= 0 ;i--) {
+            stocksData[symbol].Push(stocksHistorical[symbol][i]);
         }
     }
 }

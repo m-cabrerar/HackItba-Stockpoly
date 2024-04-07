@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231fe12737f0e2d45a0d3cb2035b4076, type: 3}
   m_Name: Pamp
   m_EditorClassIdentifier: 
-  nombre: Aapl
+  nombre: AAPL
   sprite: {fileID: 0}
   detalle: 
   precio:
-    precioBase: 0
-    variacion: 0
+    precioBase: 150
+    variacion: Infinity
+  precioAnterior: 90.62

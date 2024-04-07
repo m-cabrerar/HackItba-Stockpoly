@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231fe12737f0e2d45a0d3cb2035b4076, type: 3}
   m_Name: Meli
   m_EditorClassIdentifier: 
-  nombre: Meli
+  nombre: MELI
   sprite: {fileID: 21300000, guid: 9ad18255d32900b4bae11fde11e18492, type: 3}
   detalle: 
   precio:
-    precioBase: 0
+    precioBase: 300
     variacion: 0
+  precioAnterior: 0

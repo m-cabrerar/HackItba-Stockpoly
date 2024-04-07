@@ -8,7 +8,7 @@ public class ItemData : ScriptableObject
     public String nombre;
     public Sprite sprite;
     public String detalle;
-    [System.Serializable] public struct Precio { public long precioBase; public float variacion; }
+    [System.Serializable] public struct Precio { public long precioBase; public double variacion; }
     public Precio precio;
 
     public override bool Equals(object obj)

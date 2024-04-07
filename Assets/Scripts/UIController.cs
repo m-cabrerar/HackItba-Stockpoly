@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,13 +30,13 @@ public class UIController : MonoBehaviour
         tarjetaEnable(false);
     }
 
-    public void RenderPlayerContext(PlayerController player) // ejecutar al inicio de un turno
+    public void RenderPlayerContext(PlayerController player, int turno) // ejecutar al inicio de un turno
     {
         TriggerButton(true);
         refreshSaldo(player);
         if (casillas[player.posicionTablero].getData() != null)
         {
-            RenderTarjeta(casillas[player.posicionTablero].getData());
+            RenderTarjeta(casillas[player.posicionTablero].getData(), turno);
         
         }
         
@@ -59,13 +60,13 @@ public class UIController : MonoBehaviour
         tarjetaEnable(false);
     }
 
-    public void RenderTarjeta(ItemData data)
+    public void RenderTarjeta(ItemData data, int turno)
     {
         tarjetaEnable(true);
         tarjeta.nombre.text = data.nombre;
         tarjeta.image.GetComponent<Image>().sprite = data.sprite;
         tarjeta.detalle.text = data.detalle;
-        tarjeta.precio.text = "$" + data.precio.precioBase * (1 + data.precio.variacion);
+        tarjeta.precio.text = "$" + RoundTwoDigits(data.precio.precioBase * (1 + data.precio.variacion));
     }
 
     private void TriggerButton(bool state)
@@ -82,5 +83,34 @@ public class UIController : MonoBehaviour
         tarjeta.precio.enabled = state;
         tarjeta.comprarButton.enabled = state;
         tarjeta.noButton.enabled = state;
+    }
+
+    public void RefreshStocks(int turno)
+    {
+        foreach(var casilla in casillas)
+        {
+            ItemData data = casilla.getData();
+            if(data is TituloData) 
+            {   
+                TituloData auxData = (TituloData) data;
+                if(apiStocks.stocksData[auxData.nombre].Count < 1) 
+                {
+                    apiStocks.resetStack(auxData.nombre);
+                }
+                if(turno < 1)
+                {
+                    while(auxData.precioAnterior < 0.0001) auxData.precioAnterior = apiStocks.stocksData[auxData.nombre].Pop().close;
+                }
+                double aux = apiStocks.stocksData[auxData.nombre].Pop().close;
+                auxData.precio.variacion = (aux - auxData.precioAnterior)/auxData.precioAnterior;
+                auxData.precioAnterior = aux;
+
+            }
+        }
+    }
+
+    private Double RoundTwoDigits(double num){
+        int aux = (int) (num*100);
+        return ((double)aux)/100;
     }
 }

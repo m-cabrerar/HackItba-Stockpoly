@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Stock
 {
-    DateTime timestamp {get; set;}
-    double open {get; set;}    
-    double high {get; set;}    
-    double low {get; set;}
-    double close {get; set;}
-    long volume {get; set;}
+    public DateTime timestamp {get; set;}
+    public double open {get; set;}    
+    public double high {get; set;}    
+    public double low {get; set;}
+    public double close {get; set;}
+    public long volume {get; set;}
 
     public Stock(DateTime timestamp, double open, double high, double low, double close, long volume)
     {
