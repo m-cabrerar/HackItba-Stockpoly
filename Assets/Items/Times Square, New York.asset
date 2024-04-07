@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231fe12737f0e2d45a0d3cb2035b4076, type: 3}
-  m_Name: Pamp
+  m_Script: {fileID: 11500000, guid: 17ca40224dc08384b8b2f8114e75d98b, type: 3}
+  m_Name: Times Square, New York
   m_EditorClassIdentifier: 
-  nombre: AAPL
+  nombre: Times Square, New York
   sprite: {fileID: 0}
   detalle: 
   precio:
-    precioBase: 150
-    variacion: Infinity
-  precioAnterior: 90.62
+    precioBase: 1000
+    variacion: 0
+  idPlayer: 0
+  casas: 0

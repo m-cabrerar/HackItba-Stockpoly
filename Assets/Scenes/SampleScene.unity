@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ecdad266b0e4582b0dce6b3ac796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 176f14e846375f54981932ec735a0a6c, type: 2}
 --- !u!1001 &1018591396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2848,6 +2848,7 @@ MonoBehaviour:
   dice: {fileID: 1891658196}
   ui: {fileID: 42631463}
   apiStocks: {fileID: 444481310}
+  items: []
   diceSideThrown: 0
   gameOver: 0
 --- !u!4 &1174393935
@@ -3409,7 +3410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ecdad266b0e4582b0dce6b3ac796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: a4e7c5751b0dc0c4e81272730f448361, type: 2}
 --- !u!1 &1539225751
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,9 +3468,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ahorros: $
+  m_text: 'Ahorros: $5000
 
-    Invertido: $'
+    Invertido: $4800'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3741,7 +3742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ecdad266b0e4582b0dce6b3ac796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: efb504655b88b6446abfeca776955134, type: 2}
 --- !u!1 &1569278649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,7 +3918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ecdad266b0e4582b0dce6b3ac796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 7256332e94524404a8b35e13b7f09863, type: 2}
 --- !u!1 &1721397405
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,7 +4150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ecdad266b0e4582b0dce6b3ac796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: b8c541d554e3dc249bd777ba31fa3421, type: 2}
 --- !u!1 &1790687824
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,7 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54ecdad266b0e4582b0dce6b3ac796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 29cf867c5f97b0e47a3ebc132d398c84, type: 2}
 --- !u!1 &1891658195
 GameObject:
   m_ObjectHideFlags: 0
