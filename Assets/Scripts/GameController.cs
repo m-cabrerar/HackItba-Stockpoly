@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
 
     public void FinishTurn()
     {
-        turno++;
+        turno = (turno+1) % jugadores.Length;
         ui.RenderNewTurnContext();
         dice.EnableDice();
     }
